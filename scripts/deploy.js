@@ -7,7 +7,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const platinumContract = ethers.getContractFactory("PlatinumFunding");
+  const platinumContract = await ethers.getContractFactory("PlatinumFunding");
 
   // deployed the contract
   const deployedPlatinumContract = await platinumContract.deploy();
