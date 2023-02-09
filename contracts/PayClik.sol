@@ -15,6 +15,5 @@ contract PayClik {
     
         (bool sent,) = _to.call{value: _value}("");
         require(sent, "Failed to send ether");
-
     }
 }
