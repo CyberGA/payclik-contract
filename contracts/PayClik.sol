@@ -3,6 +3,8 @@ pragma solidity ^0.8.9;
 
 contract PayClik {
     constructor() {}
+
+    event TransactionStatus(address from, address to, uint256 amount, bool status);
     
     function getBalance() public view returns (uint256) {
         return address(msg.sender).balance;
@@ -14,6 +16,7 @@ contract PayClik {
         require(_to != address(0), "Invalid recipient address");
     
         (bool sent,) = _to.call{value: _value}("");
+        emit TransactionStatus(msg.sender, _to, _value, sent);
         require(sent, "Failed to send ether");
     }
 }
