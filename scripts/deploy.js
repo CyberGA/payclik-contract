@@ -7,7 +7,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
-  const PayClikContract = await ethers.getContractFactory("Lock");
+  const PayClikContract = await ethers.getContractFactory("PayClik");
   const PayClikContractDeployed = await PayClikContract.deploy();
   await PayClikContractDeployed.deployed();
 
